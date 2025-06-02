@@ -1,0 +1,23 @@
+services:
+  server:
+    build: ./server
+    container_name: server
+    networks:
+      - mi_red
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./server:/app
+    command: python /app/app.py
+
+  client:
+    build: ./client
+    container_name: client
+    networks:
+      - mi_red
+    depends_on:
+      - server
+
+networks:
+  mi_red:
+    driver: bridge

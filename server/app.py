@@ -1,0 +1,9 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/endpoint')
+def home():
+    return 'Hola mundo desde el servidor, ahora con volumes!', 200
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
