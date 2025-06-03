@@ -6,9 +6,6 @@ services:
       - mi_red
     ports:
       - "5001:5000"
-    volumes:
-      - ./server:/app
-    command: python /app/app.py
 
   client:
     build: ./client
